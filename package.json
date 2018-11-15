@@ -1,0 +1,29 @@
+{
+  "name": "adonis-ally-spotify",
+  "version": "1.0.0",
+  "description": "A Spotify driver for Adonis Ally social login",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/keeross/adonis-ally-spotify.git"
+  },
+  "keywords": [
+    "adonisjs",
+    "adonis",
+    "ally",
+    "spotify"
+  ],
+  "author": "keeross",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/keeross/adonis-ally-spotify/issues"
+  },
+  "homepage": "https://github.com/keeross/adonis-ally-spotify#readme",
+  "devDependencies": {
+    "@adonisjs/ally": "^2.1.2",
+    "@adonisjs/fold": "^4.0.9"
+  }
+}
