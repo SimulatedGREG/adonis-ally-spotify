@@ -5,8 +5,8 @@ const got = require('got')
 const CE = require('@adonisjs/ally/src/Exceptions')
 const OAuth2Scheme = require('@adonisjs/ally/src/Schemes/OAuth2')
 const AllyUser = require('@adonisjs/ally/src/AllyUser')
-const got = require('got')
 const utils = require('@adonisjs/ally/lib/utils')
+const _ = require('lodash')
 
 /**
  * Spotify driver to authenticate a user using
@@ -20,7 +20,7 @@ class Spotify extends OAuth2Scheme {
     const config = Config.get('services.ally.spotify')
 
     utils.validateDriverConfig('spotify', config)
-    utils.debug('facebook', config)
+    utils.debug('spotify', config)
 
     super(config.clientId, config.clientSecret, config.redirectUri)
 
@@ -134,11 +134,12 @@ class Spotify extends OAuth2Scheme {
    * @private
    */
   async _getUserProfile (accessToken) {
-    const profileUrl = `${this.apiUrl}/me?access_token=${accessToken}&fields=${this.fields.join(',')}`
+    const profileUrl = `${this.apiUrl}/me`
 
     const response = await got(profileUrl, {
       headers: {
-        'Accept': 'application/json'
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${accessToken}`
       },
       json: true
     })
@@ -160,14 +161,15 @@ class Spotify extends OAuth2Scheme {
     const user = new AllyUser()
     const expires = _.get(accessTokenResponse, 'result.expires_in')
 
-    const avatarUrl = `${this.baseUrl}/${userProfile.id}/picture?type=normal`
+    const avatarUrl = userProfile.images[0].url
 
     user.setOriginal(userProfile)
       .setFields(
         userProfile.id,
-        userProfile.name,
+        userProfile.display_name,
         userProfile.email,
         userProfile.name,
+        userProfile.country,
         avatarUrl
       )
       .setToken(
@@ -274,4 +276,4 @@ class Spotify extends OAuth2Scheme {
   }
 }
 
-module.exports = Facebook
+module.exports = Spotify

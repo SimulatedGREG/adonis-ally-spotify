@@ -6,8 +6,8 @@ const Spotify = require('../drivers/Spotify')
 class SpotifyProvider extends ServiceProvider {
   register () {
 
-    this.app.extend('Adonis/Src/Logger', 'spotify', () => {
-      return new Spotify()
+    this.app.extend('Adonis/Addons/Ally', 'spotify', () => {
+      return this.app.make(Spotify)
     })
 
   }
