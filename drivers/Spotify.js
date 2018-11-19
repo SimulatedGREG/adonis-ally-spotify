@@ -168,8 +168,7 @@ class Spotify extends OAuth2Scheme {
         userProfile.id,
         userProfile.display_name,
         userProfile.email,
-        userProfile.name,
-        userProfile.country,
+        userProfile.id,
         avatarUrl
       )
       .setToken(
