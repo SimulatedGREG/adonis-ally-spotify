@@ -1,4 +1,4 @@
-# Adonis Ally Spotify <img src="https://reps.ams3.cdn.digitaloceanspaces.com/spotify_logo.png" style="width: 30px, height: 30px; display: inline-block; vertical-align: middle;" />
+# Adonis Ally Spotify <img src="https://reps.ams3.cdn.digitaloceanspaces.com/spotify_logo.png" width="30" height="30" style="display: inline-block; vertical-align: middle;" />
 
 This service provider adds Spotify as a driver to Adonis Ally.
 
