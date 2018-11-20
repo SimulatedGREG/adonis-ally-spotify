@@ -1,4 +1,4 @@
-# Adonis Ally Spotify <img src="https://www.scdn.co/i/_global/touch-icon-114.png" width="25px" height="25px">
+# Adonis Ally Spotify <img src="https://reps.ams3.cdn.digitaloceanspaces.com/spotify_logo.png" width="25px" height="25px">
 
 This service provider adds Spotify as a driver to Adonis Ally.
 
